@@ -23,7 +23,7 @@ stages:
       displayName: 'Publish Artifact: drop'
       inputs:
         PathtoPublish: '$(Build.BinariesDirectory)'
-        artifactName: 'drop2'  
+        artifactName: 'drop3'  
   - job: A2
     pool:
       name: Hosted
