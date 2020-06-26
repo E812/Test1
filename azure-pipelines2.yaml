@@ -48,7 +48,7 @@ stages:
     - task: CopyFiles@2
       displayName: 'Copy Files (2) to: $(Build.BinariesDirectory)'
       inputs:
-        Contents: README.md
+        Contents: ReadMe2.md
         TargetFolder: '$(Build.BinariesDirectory)'
 
     - task: PublishBuildArtifacts@1
