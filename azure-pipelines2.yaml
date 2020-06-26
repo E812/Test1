@@ -6,17 +6,68 @@
 trigger:
 - master
 
-pool:
-  name: Hosted
-steps:
-- task: CopyFiles@2
-  displayName: 'Copy Files (2) to: $(Build.BinariesDirectory)'
-  inputs:
-    Contents: README.md
-    TargetFolder: '$(Build.BinariesDirectory)'
+stages:
+- stage: A
+  jobs:
+  - job: A1
+    pool:
+      name: Hosted
+    steps:
+    - task: CopyFiles@2
+      displayName: 'Copy Files (2) to: $(Build.BinariesDirectory)'
+      inputs:
+        Contents: README.md
+        TargetFolder: '$(Build.BinariesDirectory)'
 
-- task: PublishBuildArtifacts@1
-  displayName: 'Publish Artifact: drop'
-  inputs:
-    PathtoPublish: '$(Build.BinariesDirectory)'
-    artifactName: 'drop2'
+    - task: PublishBuildArtifacts@1
+      displayName: 'Publish Artifact: drop'
+      inputs:
+        PathtoPublish: '$(Build.BinariesDirectory)'
+        artifactName: 'drop2'  
+  - job: A2
+    pool:
+      name: Hosted
+    steps:
+    - task: CopyFiles@2
+      displayName: 'Copy Files (2) to: $(Build.BinariesDirectory)'
+      inputs:
+        Contents: README.md
+        TargetFolder: '$(Build.BinariesDirectory)'
+
+    - task: PublishBuildArtifacts@1
+      displayName: 'Publish Artifact: drop'
+      inputs:
+        PathtoPublish: '$(Build.BinariesDirectory)'
+        artifactName: 'drop2'  
+- stage: B
+  jobs:
+  - job: B1
+    pool:
+      name: Hosted
+    steps:
+    - task: CopyFiles@2
+      displayName: 'Copy Files (2) to: $(Build.BinariesDirectory)'
+      inputs:
+        Contents: README.md
+        TargetFolder: '$(Build.BinariesDirectory)'
+
+    - task: PublishBuildArtifacts@1
+      displayName: 'Publish Artifact: drop'
+      inputs:
+        PathtoPublish: '$(Build.BinariesDirectory)'
+        artifactName: 'drop2'  
+  - job: B2
+    pool:
+      name: Hosted
+    steps:
+    - task: CopyFiles@2
+      displayName: 'Copy Files (2) to: $(Build.BinariesDirectory)'
+      inputs:
+        Contents: README.md
+        TargetFolder: '$(Build.BinariesDirectory)'
+
+    - task: PublishBuildArtifacts@1
+      displayName: 'Publish Artifact: drop'
+      inputs:
+        PathtoPublish: '$(Build.BinariesDirectory)'
+        artifactName: 'drop2'  
